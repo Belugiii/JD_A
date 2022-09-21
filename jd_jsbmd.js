@@ -124,9 +124,9 @@ function sign(orderId) {
                     data = JSON.parse(data)
                     let msg_temp
                     if (data.success) {
-                        msg_temp = $.productName + ' 签到成功'
+                        msg_temp = $.productName + '✅签到成功✅'
                     } else {
-                        msg_temp = $.productName + ' ' + (data.errMsg || '未知错误')
+                        msg_temp = $.productName + '❌' + (data.errMsg || '未知错误❌')
                     }
                     console.log(msg_temp)
                     msg.push(msg_temp)
