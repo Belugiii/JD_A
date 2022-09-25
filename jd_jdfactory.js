@@ -47,6 +47,7 @@ $.newShareCode = [];
         continue
       }
       await jdFactory()
+	  await showCode();
     }
   }
 })()
