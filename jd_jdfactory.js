@@ -1,4 +1,4 @@
-const $ = new Env('京东工厂互助码');
+const $ = new Env('A_京东工厂互助码');
 
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
@@ -20,6 +20,7 @@ let wantProduct = ``;//心仪商品名称
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const inviteCodes = [];
 let myInviteCode;
+var code = [];
 $.newShareCode = [];
 !(async () => {
   if (!cookiesArr[0]) {
@@ -55,17 +56,31 @@ $.newShareCode = [];
   .finally(() => {
     $.done();
   })
+  
+
+async function showCode() {
+	console.log("京东工厂互助码:");
+	process.stdout.write("/ddfactory ");
+	for(var i = 0; i < code.length; i++){
+		if(i==0){
+		}else{
+			process.stdout.write("&");
+		}
+		process.stdout.write(code[i])	
+	}
+}	
+
 async function jdFactory() {
   try {
-    // await jdfactory_getHomeData();
+    //await jdfactory_getHomeData();
     // $.newUser !==1 && $.haveProduct === 2，老用户但未选购商品
     // $.newUser === 1新用户
     if ($.newUser === 1) return
-    // await jdfactory_collectElectricity();//收集产生的电量
+    //await jdfactory_collectElectricity();//收集产生的电量
     await jdfactory_getTaskDetail();
-    // await doTask();
-    // await algorithm();//投入电力逻辑
-    // await showMsg();
+    //await doTask();
+    //await algorithm();//投入电力逻辑
+    await showMsg();
   } catch (e) {
     $.logErr(e)
   }
@@ -445,6 +460,7 @@ function jdfactory_getTaskDetail() {
               $.taskVos.map(item => {
                 if (item.taskType === 14) {
                   console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${item.assistTaskDetailVo.taskToken}\n`)
+				  code.push(`${item.assistTaskDetailVo.taskToken}`);
                   myInviteCode = item.assistTaskDetailVo.taskToken;
                   jdFactoryShareArr.push(myInviteCode)
                 }
