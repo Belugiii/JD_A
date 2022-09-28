@@ -596,7 +596,7 @@ async function getShareCode() {
 }
 
 async function showCode() {
-	console.log("东东农场互助码:")
+	console.log("东东农场互助码(" + farm.length +"个):")
 	process.stdout.write("/farm ");
 	for(var i = 0; i < farm.length; i++){
 		if(i==0){
@@ -606,7 +606,7 @@ async function showCode() {
 		process.stdout.write(farm[i])	
 	}
 	console.log("\n")
-	console.log("种豆得豆互助码:")
+	console.log("种豆得豆互助码(" + bean.length + "个):")
 	process.stdout.write("/bean ");
 	for(var i = 0; i < bean.length; i++){
 		if(i==0){
@@ -616,7 +616,7 @@ async function showCode() {
 		process.stdout.write(bean[i])	
 	}
 	console.log("\n")
-	console.log("东东工厂互助码:")
+	console.log("东东工厂互助码(" + ddfactory.length + "个):")
 	process.stdout.write("/ddfactory ");
 	for(var i = 0; i < ddfactory.length; i++){
 		if(i==0){
@@ -626,7 +626,7 @@ async function showCode() {
 		process.stdout.write(ddfactory[i])	
 	}
 	console.log("\n")
-	console.log("东东萌宠互助码:")
+	console.log("东东萌宠互助码(" + pet.length + "个):")
 	process.stdout.write("/pet ");
 	for(var i = 0; i < pet.length; i++){
 		if(i==0){
@@ -636,7 +636,7 @@ async function showCode() {
 		process.stdout.write(pet[i])	
 	}
 	console.log("\n")
-	console.log("京喜工厂互助码:")
+	console.log("京喜工厂互助码(" + jxfactory.length + "个):")
 	process.stdout.write("/jxfactory ");
 	for(var i = 0; i < jxfactory.length; i++){
 		if(i==0){
